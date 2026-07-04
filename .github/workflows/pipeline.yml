@@ -2,24 +2,24 @@ name: TMDB Daily ETL Pipeline
 
 on:
   schedule:
-  # This cron schedule runs at 13:00 UTC (8:00 AM CDT) every day
-  - cron: '0 13 * * *'
-  workflow_dispatch: # This is line adds a "Run Now" button to Github so you can test it manually
+    # This cron schedule runs at 13:00 UTC (8:00 AM CDT) every day
+    - cron: '0 13 * * *' 
+  workflow_dispatch: # This magical line adds a "Run Now" button to GitHub so you can test it manually!
 
 jobs:
   run-pipeline:
     runs-on: ubuntu-latest
 
     steps:
-      -name: 📥 Checkout Code
-       uses: actions/checkout@v4
+      - name: 📥 Checkout Code
+        uses: actions/checkout@v4
 
-      -name: 🏗️ Build Docker Image
-       run: docker build -t tmdb-pipeline .
+      - name: 🏗️ Build Docker Image
+        run: docker build -t tmdb-pipeline .
 
-      -name:🚀 Run Pipeline in Docker
-      #Securely inject your Github Secret into the container
-       env:
-         TMDB_API_KEY: ${{ secrets.TMDB_API_KEY }}
-      run: |
-      docker run --rm -e TMDB_API_KEY=$TMDB_API_KEY tmdb-pipeline
+      - name: 🚀 Run Pipeline in Docker
+        # We securely inject your GitHub Secret into the container
+        env:
+          TMDB_API_KEY: ${{ secrets.TMDB_API_KEY }}
+        run: |
+          docker run --rm -e TMDB_API_KEY=$TMDB_API_KEY tmdb-pipeline
