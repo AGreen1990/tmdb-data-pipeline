@@ -14,4 +14,4 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY . .
 
 #6 Run and extract, and if successful (&&) run transform
-CMD ["sh", "-c", "python extract.py && python transform.py"] 
+CMD ["sh", "-c", "python extract.py && python transform.py && python load.py"] 
