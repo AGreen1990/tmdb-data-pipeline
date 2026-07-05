@@ -28,7 +28,7 @@ def load_data_to_snowflake():
         cursor.execute("TRUNCATE TABLE TMDB_PROJECT_DB.RAW_DATA.MOVIES")
 
         # 3. Read the fresh data from local CSV
-        movies_data = []
+        movies_dict = {}
         with open("transformed_movies.csv", "r", encoding="utf-8") as file:
             csv_reader = csv.reader(file)
             next(csv_reader) # Crucial: Skip the header row!
@@ -36,7 +36,15 @@ def load_data_to_snowflake():
             #loop through the CSV and package the rows into a list
             for row in csv_reader:
                 cleaned_row = [None if val == "" else val for val in row]
-                movies_data.append(tuple(cleaned_row))
+                
+                movies_id = cleaned_row[0]
+                #Storing in dictionary with movie_id as the Key guarantees uniqueness
+                # if duplicate id comes through, it overwrites the old one
+                movies_dict[movies_id] = tuple(cleaned_row)
+        #Converts the dictionary values back into a list so Snowflake can read it
+        movies_data = list(movies_dict.values()) 
+
+
         
         #4. Insert the new data
         print(f"Inserting {len(movies_data)} fresh rows into Snowflake...")
