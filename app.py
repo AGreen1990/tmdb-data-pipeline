@@ -30,7 +30,7 @@ def load_data():
 
     # Pandas allows you to grab a SQL table and turn it into a readable format
 
-    query = "SELECT * FROM TMDB_PROJECT_DB.GOLD.GENRE_METRICS"
+    query = "SELECT * FROM TMDB_PROJECT_DB.GOLD.GENRE_METRICS_PHYSICAL"
     df = pd.read_sql(query, conn)
 
     conn.close()
