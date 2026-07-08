@@ -73,7 +73,7 @@ col1, col2 = st.columns(2)
 
 with col1:
     st.subheader("🔥 Top Most Popular")
-    st.bar_chart(data=top_10_pop, X="TITLE", y="POPULARITY", horizontal=True, color="#ff4b4b")
+    st.bar_chart(data=top_10_pop, x="TITLE", y="POPULARITY", horizontal=True, color="#ff4b4b")
 
 with col2:
     st.subheader("⭐️ Top 10 Highest Rated")
