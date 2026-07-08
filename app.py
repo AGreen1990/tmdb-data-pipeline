@@ -31,11 +31,11 @@ def load_data():
 silver_df, gold_df = load_data()
 
 # --- Macro View: Gold Layer ----
-st.headeer("🌍 The Macro View: Genre Performance")
+st.header("🌍 The Macro View: Genre Performance")
 st.markdown("Comparing ovverall **Average Rating** vs **Average Popularity** across all genres. *(Hover over dots for details)*")
 
 #streamlit's native scatter chart
-st,scatter_chart(
+st.scatter_chart(
     data=gold_df,
     x="AVERAGE_RATING",
     y="AVERAGE_POPULARITY",
