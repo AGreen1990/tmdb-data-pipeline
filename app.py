@@ -48,7 +48,7 @@ st.divider
 # ---3. Micro View: Silver Layer and Interactive Sidebar
 st.header("🔬 The Micro View: Top 10 movies")
 
-st.siderbar.header("Controls 🎛️")
+st.sidebar.header("Controls 🎛️")
 #Create a list of uniue genres from the Silver database, and add "All" to the top
 genre_list = ["All"] + list(silver_df['GENRE'].unique())
 
