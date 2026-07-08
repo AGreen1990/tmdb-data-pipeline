@@ -43,7 +43,7 @@ st.scatter_chart(
     size="TOTAL_MOVIES"
 )
 
-st.divider
+st.divider()
 
 # ---3. Micro View: Silver Layer and Interactive Sidebar
 st.header("🔬 The Micro View: Top 10 movies")
@@ -77,7 +77,7 @@ with col1:
 
 with col2:
     st.subheader("⭐️ Top 10 Highest Rated")
-    st.bar_chart(data=top_10_rating, x="TITLE", y="VOTE_AVERAGE", horizontal=True, color="00ff00")
+    st.bar_chart(data=top_10_rating, x="TITLE", y="VOTE_AVERAGE", horizontal=True, color="#00ff00")
 
 #raw data expander at the bottom
 with st.expander("🔎 View Raw Database Records"):
