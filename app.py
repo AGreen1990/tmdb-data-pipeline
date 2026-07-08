@@ -1,63 +1,84 @@
 import streamlit as st
-import snowflake.connector
 import pandas as pd
-import os
-from dotenv import load_dotenv
+import snowflake.connector
 
-#load the local .env file to grab snowflake keys
-load_dotenv()
+#Set up page layout
+st.set_page_config(page_title="TMDB Movies Dashboard", page_icon="🍿", layout="wide")
 
-#set up visual configuration of web page
-st.set_page_config(page_title="TMDB Dashboard", page_icon="🍿", layout="wide")
+st.title("🍿 TMDB Movies Dashboard")
+st.markdown("Explore live, automated movie metrics pulled straight from Snowflake.")
 
-st.title("🍿 TMDB Movies Trends Dashboard")
-st.markdown("This dashboard pulls live, aggregated metrics directly from the Snowflake Gold Layer. ")
-
-# @st.cache_data tells streamlit to remember the data so it 
-# doesn't drain your Snowflake computecredits every time you click a button
-
+#  --- 1.   CONNECT AND PULL DATA (SILVER & GOLD) ---
 @st.cache_data
 def load_data():
-    print("Connecting to Snowflake to fetch Gold data. . . ")
     conn = snowflake.connector.connect(
-        user=os.getenv("SF_USER"),
-        password=os.getenv("SF_PASSWORD"),
-        account=os.getenv("SF_ACCOUNT"),
-        warehouse="COMPUTE_WH",
-        database="TMDB_PROJECT_DB",
-        schema="GOLD"
+        user=st.secrets["SF_USER"],
+        password=st.secrets["SF_PASSWORD"],
+        account=st.secrets["SF_ACCOUNT"]
     )
 
-    # Pandas allows you to grab a SQL table and turn it into a readable format
+    #Pulls Silver Data (For individual titles)
+    silver_query = "SELECT TITLE, GENRE, VOTE_AVERAGE, POPULARITY FROM TMDB_PROJECT_DB.SILVER.CLEANED_MOVIES"
+    silver_df = pd.read_sql(silver_query, conn)
 
-    query = "SELECT * FROM TMDB_PROJECT_DB.GOLD.GENRE_METRICS_PHYSICAL"
-    df = pd.read_sql(query, conn)
+    #Pulls Gold data (for aggregated genre metrics)
+    gold_query = "SELECT GENRE, TOTAL_MOVIES, AVERAGE_RATING, AVERAGE_POPULARITY FROM TMDB_PROJECT_DB.GOLD.GENRE_METRICS_PHYSICAL"
+    gold_df = pd.read_sql(gold_query, conn)
 
-    conn.close()
-    return df
+    return silver_df, gold_df
 
-# Run function to fetch data
-df = load_data()
+#load both dataframes
+silver_df, gold_df - load_data()
 
-#----------------------------------------------------------
-# VISUALIZATION SECTION
-#----------------------------------------------------------
+# --- Macro View: Gold Layer ----
+st.headeer("🌍 The Macro View: Genre Performance")
+st.markdown("Comparing ovverall **Average Rating** vs **Average Popularity** across all genres. *(Hover over dots for details)*")
 
-# Creates two side by side columns on webpage
+#streamlit's native scatter chart
+st,scatter_chart(
+    data=gold_df,
+    x="AVERAGE_RATING",
+    y="AVERAGE_POPULARITY",
+    color="GENRE",
+    size="TOTAL_MOVIES"
+)
+
+st.divider
+
+# ---3. Micro View: Silver Layer and Interactive Sidebar
+st.header("🔬 The Micro View: Top 10 movies")
+
+st.siderbar.header("Controls 🎛️")
+#Create a list of uniue genres from the Silver database, and add "All" to the top
+genre_list = ["All"] + list(silver_df['GENRE'].unique())
+
+#build dropdown menu
+selected_genre = st.sidebar.selectbox("Filter by Genre:", genre_list)
+
+# -- 4. THE FILTER LOGIC --
+if selected_genre != "All":
+    filtered_df = silver_df[silver_df['GENRE'] == selected_genre]
+else
+    filtered_df = silver_df
+
+# --- 5. Top 10 Math
+top_10_pop = filtered_df.nlargest(10, 'POPULARITY')
+top_10_rating = filtered_df.nlargest(10, 'VOTE_AVERAGE')
+
+#6 --- Visualizations ---
+st.markdown(f"### Currently viewing: **{selected_genre}** Movies")
+
+# Creates two side by side columns for charts
 col1, col2 = st.columns(2)
 
 with col1:
-    st.subheader("Data Overview (Gold View)")
-    #displays raw dataframe as clean table
-    st.dataframe(df, use_container_width=True)
+    st.subheader("🔥 Top Most Popular")
+    st.bar_chart(data=top_10_pop, X="TITLE", y="POPULARITY", horizontal=True, color="#ff4b4b")
 
 with col2:
-    st.subheader("Total Movies Per Genre")
-    # Builds a bar chrt mapping the Genre to the Total Movies count
-    st.bar_chart(data=df, x="GENRE", y="TOTAL_MOVIES")
+    st.subheader("⭐️ Top 10 Highest Rated")
+    st.bar_chart(data=top_10_rating, x="TITLE", y="VOTE_AVERAGE", horizontal=True, color="00ff00")
 
-st.divider()
-
-st.subheader("Average Rating vs. Popularity")
-#Creates scatterplot by layer two line charts over genre
-st.line_chart(data=df, x="GENRE", y=["AVERAGE_RATING", "AVERAGE_POPULARITY"])
+#raw data expander at the bottom
+with st.expander("🔎 View Raw Database Records"):
+    st.dataframe(filtered_df, use_container_width=True)
