@@ -58,7 +58,7 @@ selected_genre = st.sidebar.selectbox("Filter by Genre:", genre_list)
 # -- 4. THE FILTER LOGIC --
 if selected_genre != "All":
     filtered_df = silver_df[silver_df['GENRE'] == selected_genre]
-else
+else:
     filtered_df = silver_df
 
 # --- 5. Top 10 Math
