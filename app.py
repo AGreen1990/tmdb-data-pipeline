@@ -28,7 +28,7 @@ def load_data():
     return silver_df, gold_df
 
 #load both dataframes
-silver_df, gold_df - load_data()
+silver_df, gold_df = load_data()
 
 # --- Macro View: Gold Layer ----
 st.headeer("🌍 The Macro View: Genre Performance")
