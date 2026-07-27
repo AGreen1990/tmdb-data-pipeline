@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
-import snowflake.connector
+import plotly.express as px
+from sqlalchemy import create_engine
 
 #Set up page layout
 st.set_page_config(page_title="TMDB Movies Dashboard", page_icon="🍿", layout="wide")
@@ -11,11 +12,22 @@ st.markdown("Explore live, automated movie metrics pulled straight from Snowflak
 #  --- 1.   CONNECT AND PULL DATA (SILVER & GOLD) ---
 @st.cache_data
 def load_data():
-    conn = snowflake.connector.connect(
-        user=st.secrets["SF_USER"],
-        password=st.secrets["SF_PASSWORD"],
-        account=st.secrets["SF_ACCOUNT"]
-    )
+    #1. Grab Neon connection string from Streamlit secrets
+    db_url = st.secrets["DATABASE_URL"]
+
+    #2. Establish the connection
+    engine = create_engine(db_url)
+
+    #3. Write a simple query to grab everything from the "movies" table
+    query = "Select * FROM movies"
+
+    #4. Use pandas to run the query and turn it into a dataframe
+
+    df = pd.read_sql(query, con=engine)
+
+    return df
+
+
 
     #Pulls Silver Data (For individual titles)
     silver_query = "SELECT TITLE, GENRE, VOTE_AVERAGE, POPULARITY FROM TMDB_PROJECT_DB.SILVER.CLEANED_MOVIES"
