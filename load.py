@@ -1,68 +1,25 @@
 import os
 import csv
-import snowflake.connector
 from dotenv import load_dotenv
+import pandas as pd
+import sqlalchemy import create_engine
 
 # Load the local .env file to securely access credentials
 load_dotenv()
 
-def load_data_to_snowflake():
-    #1 establish the connection to snowflake
-    print("Connecting to Snowflake...")
-    conn = snowflake.connector.connect(
-        user=os.getenv("SF_USER"),
-        password=os.getenv("SF_PASSWORD"),
-        account=os.getenv("SF_ACCOUNT"),
-        warehouse="COMPUTE_WH",
-        database="TMDB_PROJECT_DB",
-        schema="RAW DATA",
-        role="ACCOUNTADMIN"
-    )
+def load_data_to_neon():
+    print("Connecting to Neon Database...")
 
-    #A cursor is like a tunnel that lets us send SQL commands to a database
-    cursor = conn.cursor()
+    #1. Grab your connection string from the environment variables
+    db_url = os.environ.get("postgresql://neondb_owner:npg_04rxtPLYEKcq@ep-quiet-rice-axate7ft.c-4.us-east-2.aws.neon.tech/neondb?sslmode=require")
 
-    try:
-        # 2. Prevent Duplicates: Truncate the table
-        print("Truncating the existing Movies table. . .")
-        cursor.execute("TRUNCATE TABLE TMDB_PROJECT_DB.RAW_DATA.MOVIES")
+    #2. Read the CSV that your script created in the Transform step
+    df = pd.read_csv(transformed_movies.csv)
 
-        # 3. Read the fresh data from local CSV
-        movies_dict = {}
-        with open("transformed_movies.csv", "r", encoding="utf-8") as file:
-            csv_reader = csv.reader(file)
-            next(csv_reader) # Crucial: Skip the header row!
+    #3. Establish a database connection
+    df.to_sql("movies", con=engine, if_exists="replace", index=False)
 
-            #loop through the CSV and package the rows into a list
-            for row in csv_reader:
-                cleaned_row = [None if val == "" else val for val in row]
-                
-                movies_id = cleaned_row[0]
-                #Storing in dictionary with movie_id as the Key guarantees uniqueness
-                # if duplicate id comes through, it overwrites the old one
-                movies_dict[movies_id] = tuple(cleaned_row)
-        #Converts the dictionary values back into a list so Snowflake can read it
-        movies_data = list(movies_dict.values()) 
-
-
-        
-        #4. Insert the new data
-        print(f"Inserting {len(movies_data)} fresh rows into Snowflake...")
-        insert_query = """
-        INSERT INTO TMDB_PROJECT_DB.RAW_DATA.MOVIES
-        (movie_id, title, release_date, popularity, vote_average, primary_genre)
-        VALUES(%s, %s, %s, %s, %s, %s)
-        """
-
-        #executemany takes the query and applies it to every row in the list instantly
-        cursor.executemany(insert_query, movies_data)
-
-        print("✅ Success! Pipeline complete. Data is live in Snowflake.")
-
-    finally:
-        #5. Always close the connection so we don't waste Snowflake compute credits
-        cursor.close()
-        conn.close()
-
+    print("Succes: TMDB data safely into Neon!")
+    
 if __name__ == "__main__":
-    load_data_to_snowflake()
+    load_data_to_neon()
