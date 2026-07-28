@@ -14,7 +14,7 @@ def load_data_to_neon():
     db_url = os.environ.get("DATABASE_URL")
 
     #2. Read the CSV that your script created in the Transform step
-    df = pd.read_csv(transformed_movies.csv)
+    df = pd.read_csv("transformed_movies.csv")
 
     #3. Establish a database connection
     engine = create_engine(db_url)
