@@ -52,6 +52,7 @@ st.scatter_chart(
     x="vote_average",
     y="popularity",
     color="primary_genre"
+    size="popularity"
 )
 
 st.divider()
