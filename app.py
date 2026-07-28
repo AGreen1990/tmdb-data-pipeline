@@ -48,7 +48,7 @@ st.markdown("Comparing ovverall **Average Rating** vs **Average Popularity** acr
 
 #streamlit's native scatter chart
 st.scatter_chart(
-    data=gold_df,
+    data=df,
     x="AVERAGE_RATING",
     y="AVERAGE_POPULARITY",
     color="GENRE",
@@ -62,16 +62,16 @@ st.header("🔬 The Micro View: Top 10 movies")
 
 st.sidebar.header("Controls 🎛️")
 #Create a list of uniue genres from the Silver database, and add "All" to the top
-genre_list = ["All"] + list(silver_df['GENRE'].unique())
+genre_list = ["All"] + list(df['GENRE'].unique())
 
 #build dropdown menu
 selected_genre = st.sidebar.selectbox("Filter by Genre:", genre_list)
 
 # -- 4. THE FILTER LOGIC --
 if selected_genre != "All":
-    filtered_df = silver_df[silver_df['GENRE'] == selected_genre]
+    filtered_df = df[df['GENRE'] == selected_genre]
 else:
-    filtered_df = silver_df
+    filtered_df = df
 
 # --- 5. Top 10 Math
 top_10_pop = filtered_df.nlargest(10, 'POPULARITY')
