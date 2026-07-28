@@ -2,7 +2,7 @@ import os
 import csv
 from dotenv import load_dotenv
 import pandas as pd
-import sqlalchemy import create_engine
+from sqlalchemy import create_engine
 
 # Load the local .env file to securely access credentials
 load_dotenv()
