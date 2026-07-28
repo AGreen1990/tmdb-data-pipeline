@@ -227,7 +227,7 @@ Airflow orchestrates the end-to-end workflow through a local Docker-based enviro
 - custom Airflow image with project dependencies installed
 
 ### Current DAG
-
+ 
 **`tmdb_pipeline_dag`**
 
 Pipeline steps:
