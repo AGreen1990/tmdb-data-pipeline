@@ -46,13 +46,20 @@ df = load_data()
 st.header("🌍 The Macro View: primary_genre Performance")
 st.markdown("Comparing ovverall **Average Rating** vs **Average popularity** across all primary_genres. *(Hover over dots for details)*")
 
-#streamlit's native scatter chart
+#streamlit scatter chart
+#1 Group raw data by genre and calculate the averages and counts
+genre_performance_df = df.group.by('primary_genre').agg(
+    average_rating=('vote_average', 'mean'),
+    average_popularity=('popularity','mean'),
+    total_movies=('title', 'count')
+),reset_index()
+
 st.scatter_chart(
-    data=df,
-    x="vote_average",
-    y="popularity",
+    data=genre_performance_df,
+    x="average_rating",
+    y="average_popularity",
     color="primary_genre",
-    size="popularity"
+    size="total_movies"
 )
 
 st.divider()
