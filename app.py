@@ -49,10 +49,9 @@ st.markdown("Comparing ovverall **Average Rating** vs **Average Popularity** acr
 #streamlit's native scatter chart
 st.scatter_chart(
     data=df,
-    x="AVERAGE_RATING",
-    y="AVERAGE_POPULARITY",
-    color="GENRE",
-    size="TOTAL_MOVIES"
+    x="vote_average",
+    y="popularity",
+    color="primary_genre"
 )
 
 st.divider()
