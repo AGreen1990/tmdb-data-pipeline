@@ -7,7 +7,7 @@ from sqlalchemy import create_engine
 st.set_page_config(page_title="TMDB Movies Dashboard", page_icon="🍿", layout="wide")
 
 st.title("🍿 TMDB Movies Dashboard")
-st.markdown("Explore live, automated movie metrics pulled straight from Snowflake.")
+st.markdown("Explore live, automated movie metrics pulled straight from Neon.")
 
 #  --- 1.   CONNECT AND PULL DATA (SILVER & GOLD) ---
 @st.cache_data
@@ -39,8 +39,8 @@ def load_data():
 
     return silver_df, gold_df
 
-#load both dataframes
-silver_df, gold_df = load_data()
+#load  dataframe
+df = load_data()
 
 # --- Macro View: Gold Layer ----
 st.header("🌍 The Macro View: Genre Performance")
