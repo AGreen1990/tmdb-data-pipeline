@@ -48,7 +48,7 @@ st.markdown("Comparing ovverall **Average Rating** vs **Average popularity** acr
 
 #streamlit scatter chart
 #1 Group raw data by genre and calculate the averages and counts
-genre_performance_df = df.group.by('primary_genre').agg(
+genre_performance_df = df.groupby('primary_genre').agg(
     average_rating=('vote_average', 'mean'),
     average_popularity=('popularity','mean'),
     total_movies=('title', 'count')
