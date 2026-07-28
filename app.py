@@ -30,11 +30,11 @@ def load_data():
 
 
     #Pulls Silver Data (For individual titles)
-    silver_query = "SELECT TITLE, GENRE, VOTE_AVERAGE, POPULARITY FROM TMDB_PROJECT_DB.SILVER.CLEANED_MOVIES"
+    silver_query = "SELECT title, primary_genre, vote_average_AVERAGE, popularity FROM TMDB_PROJECT_DB.SILVER.CLEANED_MOVIES"
     silver_df = pd.read_sql(silver_query, conn)
 
-    #Pulls Gold data (for aggregated genre metrics)
-    gold_query = "SELECT GENRE, TOTAL_MOVIES, AVERAGE_RATING, AVERAGE_POPULARITY FROM TMDB_PROJECT_DB.GOLD.GENRE_METRICS_PHYSICAL"
+    #Pulls Gold data (for aggregated primary_genre metrics)
+    gold_query = "SELECT primary_genre, TOTAL_MOVIES, AVERAGE_RATING, AVERAGE_popularity FROM TMDB_PROJECT_DB.GOLD.primary_genre_METRICS_PHYSICAL"
     gold_df = pd.read_sql(gold_query, conn)
 
     return silver_df, gold_df
@@ -43,8 +43,8 @@ def load_data():
 df = load_data()
 
 # --- Macro View: Gold Layer ----
-st.header("🌍 The Macro View: Genre Performance")
-st.markdown("Comparing ovverall **Average Rating** vs **Average Popularity** across all genres. *(Hover over dots for details)*")
+st.header("🌍 The Macro View: primary_genre Performance")
+st.markdown("Comparing ovverall **Average Rating** vs **Average popularity** across all primary_genres. *(Hover over dots for details)*")
 
 #streamlit's native scatter chart
 st.scatter_chart(
@@ -60,35 +60,35 @@ st.divider()
 st.header("🔬 The Micro View: Top 10 movies")
 
 st.sidebar.header("Controls 🎛️")
-#Create a list of uniue genres from the Silver database, and add "All" to the top
-genre_list = ["All"] + list(df['GENRE'].unique())
+#Create a list of uniue primary_primary_genres from the Silver database, and add "All" to the top
+primary_genre_list = ["All"] + list(df['primary_genre'].unique())
 
 #build dropdown menu
-selected_genre = st.sidebar.selectbox("Filter by Genre:", genre_list)
+selected_primary_genre = st.sidebar.selectbox("Filter by primary_genre:", primary_genre_list)
 
 # -- 4. THE FILTER LOGIC --
-if selected_genre != "All":
-    filtered_df = df[df['GENRE'] == selected_genre]
+if selected_primary_genre != "All":
+    filtered_df = df[df['primary_genre'] == selected_primary_genre]
 else:
     filtered_df = df
 
 # --- 5. Top 10 Math
-top_10_pop = filtered_df.nlargest(10, 'POPULARITY')
-top_10_rating = filtered_df.nlargest(10, 'VOTE_AVERAGE')
+top_10_pop = filtered_df.nlargest(10, 'popularity')
+top_10_rating = filtered_df.nlargest(10, 'vote_average')
 
 #6 --- Visualizations ---
-st.markdown(f"### Currently viewing: **{selected_genre}** Movies")
+st.markdown(f"### Currently viewing: **{selected_primary_genre}** Movies")
 
 # Creates two side by side columns for charts
 col1, col2 = st.columns(2)
 
 with col1:
     st.subheader("🔥 Top Most Popular")
-    st.bar_chart(data=top_10_pop, x="TITLE", y="POPULARITY", horizontal=True, color="#ff4b4b")
+    st.bar_chart(data=top_10_pop, x="title", y="popularity", horizontal=True, color="#ff4b4b")
 
 with col2:
     st.subheader("⭐️ Top 10 Highest Rated")
-    st.bar_chart(data=top_10_rating, x="TITLE", y="VOTE_AVERAGE", horizontal=True, color="#00ff00")
+    st.bar_chart(data=top_10_rating, x="title", y="vote_average", horizontal=True, color="#00ff00")
 
 #raw data expander at the bottom
 with st.expander("🔎 View Raw Database Records"):
