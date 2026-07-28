@@ -51,7 +51,7 @@ st.scatter_chart(
     data=df,
     x="vote_average",
     y="popularity",
-    color="primary_genre"
+    color="primary_genre",
     size="popularity"
 )
 
