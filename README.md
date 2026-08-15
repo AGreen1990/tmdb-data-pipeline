@@ -356,7 +356,3 @@ Examples of next-stage enhancements include:
 - SQL
 - pandas
 - matplotlib
-
-## Resume Summary
-
-This project demonstrates practical experience in building a modern data platform from ingestion through analytics delivery, including object storage, cloud warehousing, transformation modeling, orchestration, testing, and dashboard development.
