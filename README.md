@@ -6,7 +6,7 @@ This repository contains an end-to-end data engineering pipeline built around da
 
 The architecture follows a layered medallion-style design:
 
-TMDB API -> MinIO Bronze -> Snowflake Bronze -> dbt Silver -> dbt Gold -> Airflow -> Streamlit
+TMDB API -> MinIO Bronze -> NeonDB Bronze -> dbt Silver -> dbt Gold -> Airflow -> Streamlit
 
 The project was designed to demonstrate practical engineering across ingestion, storage, warehousing, transformation, orchestration, and analytics delivery.
 
@@ -16,10 +16,10 @@ The project was designed to demonstrate practical engineering across ingestion, 
 
 1. TMDB trending data is fetched from the TMDB API using an authenticated Python client.
 2. Raw JSON responses are written to MinIO in a date-partitioned Bronze storage layout.
-3. Raw Bronze files are loaded into Snowflake Bronze as semi-structured `VARIANT` records.
+3. Raw Bronze files are loaded into NeonDB as semi-structured `VARIANT` records.
 4. dbt transforms raw warehouse data into structured Silver and Gold models.
 5. Airflow orchestrates the ingestion, loading, and transformation workflow.
-6. Streamlit reads curated Gold models from Snowflake and presents them in a dashboard layer.
+6. Streamlit reads curated Gold models from NeonDB and presents them in a dashboard layer.
 
 ### Data layers
 
@@ -27,7 +27,7 @@ The project was designed to demonstrate practical engineering across ingestion, 
 The Bronze layer preserves raw ingestion outputs with minimal transformation.
 
 - MinIO stores raw JSON objects from TMDB
-- Snowflake Bronze stores one raw record per object
+- NeonDB Bronze stores one raw record per object
 - Metadata such as object key, partition date, run ID, payload hash, and load timestamp are preserved
 
 #### Silver
@@ -356,7 +356,3 @@ Examples of next-stage enhancements include:
 - SQL
 - pandas
 - matplotlib
-
-## Resume Summary
-
-This project demonstrates practical experience in building a modern data platform from ingestion through analytics delivery, including object storage, cloud warehousing, transformation modeling, orchestration, testing, and dashboard development.
