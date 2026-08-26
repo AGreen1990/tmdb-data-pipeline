@@ -1,6 +1,6 @@
 # TMDB Data Engineering Pipeline
 
-This repository contains an automated end-to-end Data Engineering ETL pipeline extracting trending movie data from the TMDB API. The data is processed via Python and loaded into a Neon Serverless PostgreSQL database, with orchestration handled entirely by GitHub Actions CI/CD workflows.
+This repository contains an automated end-to-end Data Engineering ETL pipeline extracting trending movie data from the TMDB API. The data is processed via Python and loaded into a Neon Serverless PostgreSQL database, with orchestration handled entirely by GitHub Actions CI/CD workflows. This pipeline can be executed either directly in a local Python virtual environment or inside an isolated container using Docker.
 
 ## Data Architecture (Medallion Concept)
 
@@ -16,6 +16,8 @@ The project follows a modular Extract, Transform, and Load (ETL) design, mapped 
 tmdb-data-pipeline/
 ├── .github/
 │   └── workflows/
+|       └── pipeline.yml
+├── Dockerfile
 ├── extract.py
 ├── transform.py
 ├── load.py
@@ -29,43 +31,48 @@ tmdb-data-pipeline/
 
 - Language: Python 3.9+ (requests, json, csv, psycopg2)
 - Database: Neon Serverless PostgresSQL
+- Containerization: Docker
 - Orchestration: GitHub Actions CI/CD
 - Version Control: Git & Github
 
-Local Setup & Execution
+Option 1: Local Setup & Execution
 To run this pipeline locally, you will need Python 3.9+ installed on your machine. 
 
 ## 1. Clone the repository
 
 Bash
 
+```
 git clone [https://github.com/AGreen1990/tmdb-data-pipeline.git](https://github.com/AGreen1990/tmdb-data-pipeline.git)
 cd tmdb-data-pipeline
+```
 
 ## 2. Configure Virtual Machine
 
 Bash
-
+```
 python3 -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
+```
 
 ## 3. Environment Variables
 - This project requires API keys and database credentials to function. Create a .env file in the root directory:
 
 Bash
-
+```
 touch .env
 
 - Add the following variables to your .env file, replacing the placeholder values with your actual credentials:
 
 TMDB_API_KEY="your_tmdb_v3_api_key_here"
 NEON_DB_CONNECTION_STRING="postgresql://user:password@endpoint.neon.tech/dbname"
-
+```
 ## 4. Execute the Pipeline
 - Run the pipeline sequentially to extract the data, transform it into a structured CSV, and load it into your Neon PostgreSQL database:
-
+  
 Bash
+```
 1. Fetch raw JSON data from TMDB API (Bronze)
    
 python3 extract.py
@@ -76,4 +83,19 @@ python3 transform.py
 
 3. Upsert records into Neon PostgreSQL (Gold)
 
-python3 load.py
+python3 load.py 
+```
+
+Option 2: Containerized Execution with Docker
+
+Bash
+```
+1. Build the Docker Image
+
+docker build -t tmdb-pipeline .
+
+2. Run the Container
+- Pass your environment variables file to the container upon execution:
+
+docker run --env-file .env tmdb-pipeline
+```
