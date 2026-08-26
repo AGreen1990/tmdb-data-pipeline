@@ -1,6 +1,6 @@
 # TMDB Data Engineering Pipeline
 
-This repository contains an automated end-to-end Data Engineering ETL pipeline extracting trending movie data from the TMDB API. The data is processed via Python and loaded into a Neon Serverless PostgreSQL database, with orchestration handled entirely by GitHub Actions CI/CD workflows.
+This repository contains an automated end-to-end Data Engineering ETL pipeline extracting trending movie data from the TMDB API. The data is processed via Python and loaded into a Neon Serverless PostgreSQL database, with orchestration handled entirely by GitHub Actions CI/CD workflows. This pipeline can be executed either directly in a local Python virtual environment or inside an isolated container using Docker.
 
 ## Data Architecture (Medallion Concept)
 
@@ -31,6 +31,7 @@ tmdb-data-pipeline/
 
 - Language: Python 3.9+ (requests, json, csv, psycopg2)
 - Database: Neon Serverless PostgresSQL
+- Containerization: Docker
 - Orchestration: GitHub Actions CI/CD
 - Version Control: Git & Github
 
