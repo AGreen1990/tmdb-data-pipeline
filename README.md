@@ -85,15 +85,14 @@ python3 load.py
 
 Option 2: Containerized Execution with Docker
 
-## 1. Build the Docker Image
-
 Bash
+```
+1. Build the Docker Image
 
 docker build -t tmdb-pipeline .
 
 ## 2. Run the Container
 - Pass your environment variables file to the container upon execution:
 
-Bash
-
 docker run --env-file .env tmdb-pipeline
+```
