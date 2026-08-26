@@ -41,34 +41,36 @@ To run this pipeline locally, you will need Python 3.9+ installed on your machin
 
 Bash
 
+```
 git clone [https://github.com/AGreen1990/tmdb-data-pipeline.git](https://github.com/AGreen1990/tmdb-data-pipeline.git)
 cd tmdb-data-pipeline
+```
 
 ## 2. Configure Virtual Machine
 
 Bash
-
+```
 python3 -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
+```
 
 ## 3. Environment Variables
 - This project requires API keys and database credentials to function. Create a .env file in the root directory:
 
 Bash
-
+```
 touch .env
 
 - Add the following variables to your .env file, replacing the placeholder values with your actual credentials:
 
 TMDB_API_KEY="your_tmdb_v3_api_key_here"
 NEON_DB_CONNECTION_STRING="postgresql://user:password@endpoint.neon.tech/dbname"
-
+```
 ## 4. Execute the Pipeline
 - Run the pipeline sequentially to extract the data, transform it into a structured CSV, and load it into your Neon PostgreSQL database:
-
+  
 Bash
-
 ```
 1. Fetch raw JSON data from TMDB API (Bronze)
    
@@ -91,7 +93,7 @@ Bash
 
 docker build -t tmdb-pipeline .
 
-## 2. Run the Container
+2. Run the Container
 - Pass your environment variables file to the container upon execution:
 
 docker run --env-file .env tmdb-pipeline
