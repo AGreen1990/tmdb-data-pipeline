@@ -16,6 +16,8 @@ The project follows a modular Extract, Transform, and Load (ETL) design, mapped 
 tmdb-data-pipeline/
 ├── .github/
 │   └── workflows/
+|       └── pipeline.yml
+├── Dockerfile
 ├── extract.py
 ├── transform.py
 ├── load.py
@@ -32,7 +34,7 @@ tmdb-data-pipeline/
 - Orchestration: GitHub Actions CI/CD
 - Version Control: Git & Github
 
-Local Setup & Execution
+Option 1: Local Setup & Execution
 To run this pipeline locally, you will need Python 3.9+ installed on your machine. 
 
 ## 1. Clone the repository
@@ -77,3 +79,19 @@ python3 transform.py
 3. Upsert records into Neon PostgreSQL (Gold)
 
 python3 load.py
+
+
+Option 2: Containerized Execution with Docker
+
+## 1. Build the Docker Image
+
+Bash
+
+docker build -t tmdb-pipeline .
+
+## 2. Run the Container
+- Pass your environment variables file to the container upon execution:
+
+Bash
+
+docker run --env-file .env tmdb-pipeline
