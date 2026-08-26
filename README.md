@@ -38,12 +38,14 @@ To run this pipeline locally, you will need Python 3.9+ installed on your machin
 ## 1. Clone the repository
 
 Bash
+
 git clone [https://github.com/AGreen1990/tmdb-data-pipeline.git](https://github.com/AGreen1990/tmdb-data-pipeline.git)
 cd tmdb-data-pipeline
 
 ## 2. Configure Virtual Machine
 
 Bash
+
 python3 -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
@@ -52,6 +54,7 @@ pip install -r requirements.txt
 - This project requires API keys and database credentials to function. Create a .env file in the root directory:
 
 Bash
+
 touch .env
 
 - Add the following variables to your .env file, replacing the placeholder values with your actual credentials:
