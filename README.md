@@ -68,15 +68,15 @@ NEON_DB_CONNECTION_STRING="postgresql://user:password@endpoint.neon.tech/dbname"
 - Run the pipeline sequentially to extract the data, transform it into a structured CSV, and load it into your Neon PostgreSQL database:
 
 Bash
-1. Fetch raw JSON data from TMDB API (Bronze)
+# 1. Fetch raw JSON data from TMDB API (Bronze)
    
 python3 extract.py
 
-2. Flatten JSON and prepare CSV (Silver)
+# 2. Flatten JSON and prepare CSV (Silver)
 
 python3 transform.py
 
-3. Upsert records into Neon PostgreSQL (Gold)
+# 3. Upsert records into Neon PostgreSQL (Gold)
 
 python3 load.py
 
