@@ -5,7 +5,7 @@ FROM python:3.11-slim
 WORKDIR /app
 
 #3 Copy our requirements list into the container
-COPY requirements.txt .
+COPY .vscode/requirements.txt .
 
 #4 Install the required Python libraries
 RUN pip install --no-cache-dir -r requirements.txt
