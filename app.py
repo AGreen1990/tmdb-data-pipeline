@@ -56,10 +56,10 @@ genre_performance_df = df.groupby('primary_genre').agg(
 
 st.scatter_chart(
     data=genre_performance_df,
-    x="average rating",
-    y="average popularity",
-    color="primary genre",
-    size="total movies"
+    x="average_rating",
+    y="average _popularity",
+    color="primary_genre",
+    size="total_movies"
 )
 
 st.divider()
@@ -82,7 +82,7 @@ else:
 
 # --- 5. Top 10 Math
 top_10_pop = filtered_df.nlargest(10, 'popularity')
-top_10_rating = filtered_df.nlargest(10, 'vote average')
+top_10_rating = filtered_df.nlargest(10, 'vote_average')
 
 #6 --- Visualizations ---
 st.markdown(f"### Currently viewing: **{selected_primary_genre}** Movies")
