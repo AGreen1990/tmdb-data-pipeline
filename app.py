@@ -44,7 +44,7 @@ df = load_data()
 
 # --- Macro View: Gold Layer ----
 st.header("🌍 The Macro View: primary_genre Performance")
-st.markdown("Comparing ovverall **Average Rating** vs **Average popularity** across all primary_genres. *(Hover over dots for details)*")
+st.markdown("Comparing ovverall **Average Rating** vs **Average popularity** across all primary genres. *(Hover over dots for details)*")
 
 #streamlit scatter chart
 #1 Group raw data by genre and calculate the averages and counts
@@ -56,10 +56,10 @@ genre_performance_df = df.groupby('primary_genre').agg(
 
 st.scatter_chart(
     data=genre_performance_df,
-    x="average_rating",
-    y="average_popularity",
-    color="primary_genre",
-    size="total_movies"
+    x="average rating",
+    y="average popularity",
+    color="primary genre",
+    size="total movies"
 )
 
 st.divider()
@@ -72,7 +72,7 @@ st.sidebar.header("Controls 🎛️")
 primary_genre_list = ["All"] + list(df['primary_genre'].unique())
 
 #build dropdown menu
-selected_primary_genre = st.sidebar.selectbox("Filter by primary_genre:", primary_genre_list)
+selected_primary_genre = st.sidebar.selectbox("Filter by primary genre:", primary_genre_list)
 
 # -- 4. THE FILTER LOGIC --
 if selected_primary_genre != "All":
@@ -82,7 +82,7 @@ else:
 
 # --- 5. Top 10 Math
 top_10_pop = filtered_df.nlargest(10, 'popularity')
-top_10_rating = filtered_df.nlargest(10, 'vote_average')
+top_10_rating = filtered_df.nlargest(10, 'vote average')
 
 #6 --- Visualizations ---
 st.markdown(f"### Currently viewing: **{selected_primary_genre}** Movies")
@@ -92,11 +92,11 @@ col1, col2 = st.columns(2)
 
 with col1:
     st.subheader("🔥 Top Most Popular")
-    st.bar_chart(data=top_10_pop, x="title", y="popularity", horizontal=True, color="#ff4b4b")
+    st.bar_chart(data=top_10_pop, x="Title", y="Popularity", horizontal=True, color="#ff4b4b")
 
 with col2:
     st.subheader("⭐️ Top 10 Highest Rated")
-    st.bar_chart(data=top_10_rating, x="title", y="vote_average", horizontal=True, color="#00ff00")
+    st.bar_chart(data=top_10_rating, x="Title", y="Vote Average", horizontal=True, color="#00ff00")
 
 #raw data expander at the bottom
 with st.expander("🔎 View Raw Database Records"):
