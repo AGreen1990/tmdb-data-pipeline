@@ -43,7 +43,7 @@ def load_data():
 df = load_data()
 
 # --- Macro View: Gold Layer ----
-st.header("🌍 The Macro View: primary_genre Performance")
+st.header("🌍 The Macro View: Primary Genre Performance")
 st.markdown("Comparing ovverall **Average Rating** vs **Average popularity** across all primary genres. *(Hover over dots for details)*")
 
 #streamlit scatter chart
