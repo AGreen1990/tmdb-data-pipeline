@@ -44,7 +44,8 @@ df = load_data()
 
 # --- Macro View: Gold Layer ----
 st.header("🌍 The Macro View: Primary Genre Performance")
-st.markdown("Comparing overall **Average Rating** vs **Average popularity** across all primary genres. *(Hover over dots for details)*")
+#st.markdown("Comparing overall **Average Rating** vs **Average popularity** across all primary genres. *(Hover over dots for details)*") - previous code - creates Bold caption same color as header 
+st.caption("Comparing overall **Average Rating** vs **Average popularity** across all primary genres. *(Hover over dots for details)*") #creates greyed caption beneath - added for consistency
 
 #streamlit scatter chart
 #1 Group raw data by genre and calculate the averages and counts
