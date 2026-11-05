@@ -92,6 +92,7 @@ col1, col2 = st.columns(2)
 
 with col1:
     st.subheader("🔥 Top Most Popular")
+    st.caption("Score based on daily user views, votes, and watchlist additions on TMDB.") #adding context to TMDB popularity score
     st.bar_chart(data=top_10_pop, x="title", y="popularity", horizontal=True, color="#ff4b4b")
 
 with col2:
