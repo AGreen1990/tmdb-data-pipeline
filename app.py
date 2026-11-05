@@ -96,7 +96,7 @@ with col1:
 
 with col2:
     st.subheader("⭐️ Top 10 Highest Rated")
-    st.bar_chart(data=top_10_rating, x="title", y="vote average", horizontal=True, color="#00ff00")
+    st.bar_chart(data=top_10_rating, x="title", y="vote_average", horizontal=True, color="#00ff00")
 
 #raw data expander at the bottom
 with st.expander("🔎 View Raw Database Records"):
