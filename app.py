@@ -95,11 +95,11 @@ st.write(top_10_pop.columns)
 
 with col1:
     st.subheader("🔥 Top Most Popular")
-    st.bar_chart(data=top_10_pop, x="Title", y="Popularity", horizontal=True, color="#ff4b4b")
+    st.bar_chart(data=top_10_pop, x="title", y="popularity", horizontal=True, color="#ff4b4b")
 
 with col2:
     st.subheader("⭐️ Top 10 Highest Rated")
-    st.bar_chart(data=top_10_rating, x="Title", y="Vote Average", horizontal=True, color="#00ff00")
+    st.bar_chart(data=top_10_rating, x="title", y="vote average", horizontal=True, color="#00ff00")
 
 #raw data expander at the bottom
 with st.expander("🔎 View Raw Database Records"):
