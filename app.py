@@ -81,8 +81,8 @@ else:
     filtered_df = df
 
 # --- 5. Top 10 Math
-top_10_pop = filtered_df.nlargest(10, 'popularity')
-top_10_rating = filtered_df.nlargest(10, 'vote_average')
+top_10_pop = filtered_df.nlargest(10, 'popularity').round({'popularity': 2}) #added .round code 
+top_10_rating = filtered_df.nlargest(10, 'vote_average').round({'vote_average': 2})
 
 #6 --- Visualizations ---
 st.markdown(f"### Currently viewing: **{selected_primary_genre}** Movies")
