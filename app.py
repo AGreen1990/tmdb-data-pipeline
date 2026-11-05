@@ -52,7 +52,7 @@ genre_performance_df = df.groupby('primary_genre').agg(
     average_rating=('vote_average', 'mean'),
     average_popularity=('popularity','mean'),
     total_movies=('title', 'count')
-).reset_index()
+).reset_index().round(2)  #rounds all numbers in dataframe to 2 decimals
 
 st.scatter_chart(
     data=genre_performance_df,
