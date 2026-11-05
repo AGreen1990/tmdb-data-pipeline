@@ -89,8 +89,18 @@ else:
 
 # --- 5. Top 10 Math
 top_10_pop = filtered_df.nlargest(10, 'popularity').round({'popularity': 2}) #added .round code 
-top_10_rating = filtered_df.nlargest(10, 'vote_average').round({'vote_average': 2})
+#renamed labels to be more formal for popularity and rating chart
 
+chart_top_10_pop = top_10_pop.rename(columns={
+    'title': 'Title',
+    'popularity': 'Popularity'
+})
+
+top_10_rating = filtered_df.nlargest(10, 'vote_average').round({'vote_average': 2})
+chart_top_10_rating = top_10_rating.rename(columns={
+    'title': 'Title',
+    'vote_average': 'Vote Average'
+})
 #6 --- Visualizations ---
 st.markdown(f"### Currently viewing: **{selected_primary_genre}** Movies")
 
@@ -100,11 +110,11 @@ col1, col2 = st.columns(2)
 with col1:
     st.subheader("🔥 Top Most Popular")
     st.caption("Score based on daily user views, votes, and watchlist additions on TMDB.") #adding context to TMDB popularity score
-    st.bar_chart(data=top_10_pop, x="title", y="popularity", horizontal=True, color="#ff4b4b")
+    st.bar_chart(data=top_10_pop, x="Title", y="Popularity", horizontal=True, color="#ff4b4b")
 
 with col2:
     st.subheader("⭐️ Top 10 Highest Rated")
-    st.bar_chart(data=top_10_rating, x="title", y="vote_average", horizontal=True, color="#00ff00")
+    st.bar_chart(data=top_10_rating, x="Title", y="Vote Average", horizontal=True, color="#00ff00")
 
 #raw data expander at the bottom
 with st.expander("🔎 View Raw Database Records"):
