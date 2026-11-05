@@ -54,6 +54,9 @@ genre_performance_df = df.groupby('primary_genre').agg(
     total_movies=('title', 'count')
 ).reset_index()
 
+#debug line- will print column names
+st.write(df.columns)
+
 st.scatter_chart(
     data=genre_performance_df,
     x="average_rating",
