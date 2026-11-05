@@ -110,11 +110,11 @@ col1, col2 = st.columns(2)
 with col1:
     st.subheader("🔥 Top Most Popular")
     st.caption("Score based on daily user views, votes, and watchlist additions on TMDB.") #adding context to TMDB popularity score
-    st.bar_chart(data=top_10_pop, x="Title", y="Popularity", horizontal=True, color="#ff4b4b")
+    st.bar_chart(data=chart_top_10_pop, x="Title", y="Popularity", horizontal=True, color="#ff4b4b")
 
 with col2:
     st.subheader("⭐️ Top 10 Highest Rated")
-    st.bar_chart(data=top_10_rating, x="Title", y="Vote Average", horizontal=True, color="#00ff00")
+    st.bar_chart(data=chart_top_10_rating, x="Title", y="Vote Average", horizontal=True, color="#00ff00")
 
 #raw data expander at the bottom
 with st.expander("🔎 View Raw Database Records"):
