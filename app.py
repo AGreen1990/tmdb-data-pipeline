@@ -90,9 +90,6 @@ st.markdown(f"### Currently viewing: **{selected_primary_genre}** Movies")
 # Creates two side by side columns for charts
 col1, col2 = st.columns(2)
 
-#debug code to print column names 
-st.write(top_10_pop.columns)
-
 with col1:
     st.subheader("🔥 Top Most Popular")
     st.bar_chart(data=top_10_pop, x="title", y="popularity", horizontal=True, color="#ff4b4b")
