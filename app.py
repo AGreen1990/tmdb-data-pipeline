@@ -55,12 +55,18 @@ genre_performance_df = df.groupby('primary_genre').agg(
     total_movies=('title', 'count')
 ).reset_index().round(2)  #rounds all numbers in dataframe to 2 decimals
 
+chart_df = genre_performance_df.rename(columns={
+    "average_rating": "Average Rating",
+    "average_popularity": "Average Popularity",
+    "primary_genre": "Primary Genre",
+    "total_movies": "Total Movies" }) #added to change label appearance for all
+
 st.scatter_chart(
-    data=genre_performance_df,
-    x="average_rating",
-    y="average_popularity",
-    color="primary_genre",
-    size="total_movies"
+    data=chart_df,
+    x="Average Rating",
+    y="Average Popularity",
+    color="Primary Genre",
+    size="Total Movies"
 )
 
 st.divider()
