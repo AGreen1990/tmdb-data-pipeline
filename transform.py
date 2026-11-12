@@ -58,6 +58,6 @@ with open("transformed_movies.csv", "w", newline="", encoding="utf-8") as file:
     writer.writeheader()   #writes column names as first row
     writer.writerows(cleaned_movies) #write all the movie data
 
-print(f"Success! Transformed{len(cleaned_movies)} movies and saved to transformed_movies.csv")
+print(f"Success! Transformed {len(cleaned_movies)} movies and saved to transformed_movies.csv")
 
 # Last updated: June 30th. Ready for Load phase.
