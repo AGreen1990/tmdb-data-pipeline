@@ -12,7 +12,8 @@ def load_data_to_neon():
 
     #1. Grab your connection string from the environment variables
     db_url = os.environ.get("DATABASE_URL")
-
+    if not db_url:
+        raise RuntimeError("DATABASE_URL is not set. Check your .env file. ")
     #2. Read the CSV that your script created in the Transform step
     df = pd.read_csv("transformed_movies.csv")
 
