@@ -10,7 +10,8 @@ movies_list =raw_data["results"]
 
 print("2. Transforming and flattening data. . .")
 cleaned_movies = []
-
+seen_ids = set()     #remembers movie IDs kept
+duplicates_skipped = 0   #counts the repeats skipped
 #TMDB genre mapping 
 genre_map = {
     28: "Action", 12: "Adventure", 16: "Animation", 35: "Comedy", 
@@ -42,6 +43,8 @@ for movie in movies_list:
         "primary_genre": genre_name
     }
     cleaned_movies.append(clean_movie)
+
+print(f"Skipped {duplicates_skipped} duplicate movies")
 
 print("3. Saving to CSV format. . .")
 #define column names
