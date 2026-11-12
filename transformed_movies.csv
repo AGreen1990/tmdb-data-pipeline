@@ -21,7 +21,6 @@ movie_id,title,release_date,popularity,vote_average,primary_genre
 1266127,Ready or Not: Here I Come,2026-03-19,38.5274,7.654,Thriller
 1155818,Satluj,2026-07-03,3.3878,0.0,Crime
 1212763,Evil Dead Burn,2026-07-07,29.8169,8.0,Horror
-1273221,Scary Movie,2026-06-03,527.2744,5.414,Comedy
 1725116,Simpsley,2026-07-03,0.65,0.0,Comedy
 1279493,The Get Out,2026-06-18,101.6449,6.8,Action
 1304313,Lee Cronin's The Mummy,2026-04-15,112.9995,8.0,Horror
@@ -38,7 +37,6 @@ movie_id,title,release_date,popularity,vote_average,primary_genre
 1242265,Fuze,2026-03-23,14.5352,6.446,Action
 1243741,Ballistic,2026-04-17,8.9396,5.7,Thriller
 1424435,Wings of Dread,2026-07-03,95.8968,8.0,Action
-1228710,The Mandalorian and Grogu,2026-05-20,125.6309,6.681,Action
 1228710,The Mandalorian and Grogu,2026-05-20,125.6309,6.681,Action
 1628071,Ip Man: Kung Fu Legend,2026-07-31,16.0238,0.0,Action
 1318413,Pressure,2026-05-25,33.0872,7.561,Thriller
@@ -62,9 +60,7 @@ movie_id,title,release_date,popularity,vote_average,primary_genre
 1493123,Killhouse,2026-04-23,16.1344,6.4,War
 1387382,Hunting Season,2025-12-05,16.0556,7.0,Action
 1318417,A Place for Her,2026-03-01,2.7062,8.6,Drama
-1564614,Leviticus,2026-06-17,18.2427,7.0,Horror
 1464795,Daadi Ki Shaadi,2026-05-08,8.8238,0.0,Comedy
-1308767,Young Washington,2026-07-02,15.6457,2.667,History
 1406543,Karakkam,2026-05-28,6.2661,10.0,Horror
 1339588,Finding Emily,2026-05-21,9.617,6.7,Romance
 843342,Hamlet,2026-02-06,3.0384,5.6,Drama
@@ -75,7 +71,6 @@ movie_id,title,release_date,popularity,vote_average,primary_genre
 1498047,Abuela tremenda,2026-01-01,35.1402,6.5,Comedy
 1290821,Shelter,2026-01-28,44.1259,7.698,Action
 1430968,Idiotka,2026-02-27,2.6389,6.2,Comedy
-1451344,Husbands in Action,2026-06-15,24.0518,7.552,Comedy
 1668574,A Very Unlikely Goalkeeper,2026-05-14,1.2713,0.0,Drama
 1007757,Swapped,2026-05-01,102.6184,8.944,Adventure
 1408208,Exit 8,2025-08-28,17.7382,6.9,Horror
@@ -86,7 +81,6 @@ movie_id,title,release_date,popularity,vote_average,primary_genre
 1662958,Louis C.K.: Ridiculous,2026-06-30,7.0983,6.0,Comedy
 840464,Greenland 2: Migration,2026-01-07,50.3547,6.434,Adventure
 1272837,28 Years Later: The Bone Temple,2026-01-14,36.1892,7.12,Horror
-1007757,Swapped,2026-05-01,102.6184,8.944,Adventure
 1381027,Good Boy,2026-03-06,15.3459,7.109,Thriller
 1311031,Demon Slayer: Kimetsu no Yaiba Infinity Castle,2025-07-18,87.8061,7.7,Animation
 1119377,Xeno,2025-09-19,5.1232,6.538,Adventure
@@ -101,26 +95,18 @@ movie_id,title,release_date,popularity,vote_average,primary_genre
 1198994,Send Help,2026-01-22,34.5718,7.048,Horror
 1699155,Maternal Instinct,2026-06-11,24.3615,7.13,Documentary
 1318447,Apex,2026-04-24,55.0302,6.824,Action
-1311031,Demon Slayer: Kimetsu no Yaiba Infinity Castle,2025-07-18,87.8061,7.7,Animation
 1102883,Mother Mary,2026-04-16,7.6242,5.651,Music
 1674087,Bang My Box: The Robin Byrd Story,2026-06-09,7.7155,3.667,Documentary
-425274,Now You See Me: Now You Don't,2025-11-12,24.5815,6.491,Crime
 1245859,Savage House,2026-06-05,13.167,6.731,Drama
-1498047,Abuela tremenda,2026-01-01,35.1402,6.5,Comedy
 1184941,Blue Heron,2026-03-21,4.3607,7.188,Drama
 1242332,Normal,2026-04-16,16.1956,6.437,Action
 1227877,I Love Boosters,2026-05-21,19.5663,5.968,Comedy
-1272837,28 Years Later: The Bone Temple,2026-01-14,36.1892,7.12,Horror
 1380291,Tom Clancy's Jack Ryan: Ghost War,2026-05-20,63.2508,7.029,Action
 1368166,The Housemaid,2025-12-18,45.4878,7.262,Mystery
-1297842,GOAT,2026-02-11,58.3072,8.109,Animation
 1567351,Dilmaar,2025-10-24,1.4104,0.0,Action
 1617191,Summer's Last Resort,2026-07-03,4.3725,0.0,Comedy
 1318621,Descendants: Wicked Wonderland,2026-07-16,6.3406,0.0,Fantasy
 1476740,Influencers,2025-07-26,8.4818,6.3,Horror
-880067,Strung,2026-06-18,18.0414,7.549,Mystery
-1567351,Dilmaar,2025-10-24,1.4104,0.0,Action
-1318621,Descendants: Wicked Wonderland,2026-07-16,6.3406,0.0,Fantasy
 858024,Hamnet,2025-11-26,16.5416,7.7,Drama
 1180417,The Dutchman,2026-01-02,2.5539,4.819,Drama
 1481343,The Devil's Mouth,2026-07-29,6.6114,0.0,Horror
@@ -135,30 +121,21 @@ movie_id,title,release_date,popularity,vote_average,primary_genre
 1533029,The Loved One,2026-02-11,2.2002,5.0,Romance
 1493400,Camp Rock 3,2026-08-13,4.1819,0.0,Music
 1621247,Mario,2025-12-19,1.2036,0.0,Comedy
-1380291,Tom Clancy's Jack Ryan: Ghost War,2026-05-20,63.2508,7.029,Action
 1101383,The End of Oak Street,2026-08-12,13.9053,0.0,Science Fiction
-1242332,Normal,2026-04-16,16.1956,6.437,Action
-1318447,Apex,2026-04-24,55.0302,6.824,Action
-1481343,The Devil's Mouth,2026-07-29,6.6114,0.0,Horror
 1234731,Anaconda,2025-12-24,13.5063,5.883,Adventure
 1716513,Extreme Makeover: Homer Edition,2026-06-17,5.3356,7.6,Animation
 1126336,Anniversary,2025-10-29,5.6784,6.725,Thriller
 1309400,The Children of the Resistance,2026-02-11,4.1686,6.391,Adventure
 1193501,Whistle,2026-01-20,13.1992,6.3,Horror
 1235746,Dead of Winter,2025-09-23,6.6747,6.365,Thriller
-1621247,Mario,2025-12-19,1.2036,0.0,Comedy
 1398050,Driver's Ed,2025-09-13,42.6429,6.824,Comedy
 1247165,Raja Shivaji,2026-05-01,11.8009,6.1,Action
-1102883,Mother Mary,2026-04-16,7.6242,5.651,Music
-858024,Hamnet,2025-11-26,16.5416,7.7,Drama
 1293162,Thieves Highway,2025-11-07,11.2165,7.0,Crime
 1706919,The Ghost in the Shell,2026-06-26,1.875,7.0,Animation
-1699155,Maternal Instinct,2026-06-11,24.3615,7.13,Documentary
 1442396,Nagabandham - The Secret Treasure,2026-07-02,7.8159,0.0,Drama
 1265609,War Machine,2026-02-12,39.248,7.414,Action
 1367220,Karuppu,2026-05-14,45.1574,6.6,Action
 1078605,Weapons,2025-08-04,17.456,7.26,Horror
-986056,Thunderbolts*,2025-04-30,18.3111,7.292,Action
 986056,Thunderbolts*,2025-04-30,18.3111,7.292,Action
 1002053,A Survivor's Tale,2026-03-25,1.4597,4.5,Drama
 1306884,Gorky Resort,2026-02-27,6.5151,7.0,History
@@ -176,13 +153,11 @@ movie_id,title,release_date,popularity,vote_average,primary_genre
 1440050,The Breadwinner,2026-05-29,7.0506,6.4,Comedy
 1515899,Billie Eilish - Hit Me Hard and Soft: The Tour (Live in 3D),2026-05-06,5.7886,7.5,Music
 1358167,Where Souls Go,2025-11-14,0.7881,2.7,Drama
-1398050,Driver's Ed,2025-09-13,42.6429,6.824,Comedy
 1184918,The Wild Robot,2024-09-12,35.2038,8.3,Family
 1353926,Keep Real,2026-07-03,11.4131,3.0,Drama
 1234821,Jurassic World Rebirth,2025-06-23,39.6697,6.275,Science Fiction
 1501018,A Family of Bastards,2026-06-12,7.6428,5.365,Comedy
 1316092,"""Wuthering Heights""",2026-02-11,19.3687,6.654,Romance
-1184918,The Wild Robot,2024-09-12,35.2038,8.3,Family
 1241982,Moana 2,2024-11-21,29.205,7.005,Adventure
 701387,Bugonia,2025-10-23,14.7561,7.311,Science Fiction
 1363974,That Time I Got Reincarnated as a Slime the Movie: Tears of the Azure Sea,2026-02-27,7.7346,6.6,Animation
@@ -198,7 +173,6 @@ movie_id,title,release_date,popularity,vote_average,primary_genre
 1101412,Fall 2: Deadpoint,2026-08-13,7.8395,0.0,Thriller
 933260,The Substance,2024-09-07,30.6961,7.133,Horror
 950387,A Minecraft Movie,2025-03-31,36.2008,6.258,Family
-1423191,Resident Evil,2026-09-09,7.1174,0.0,Horror
 1423191,Resident Evil,2026-09-09,7.1174,0.0,Horror
 1455079,"You, Me & Tuscany",2026-04-09,8.3083,7.5,Romance
 696393,Cold Storage,2026-01-22,9.1933,6.771,Horror
@@ -218,7 +192,6 @@ movie_id,title,release_date,popularity,vote_average,primary_genre
 1386105,Piranthanaal Vazhthukal,,1.0306,0.0,Unknown
 1007734,Nobody 2,2025-08-13,16.4329,6.924,Action
 1447853,Don't Look Back In Anger,2026-09-10,0.9021,0.0,Documentary
-1501018,A Family of Bastards,2026-06-12,7.6428,5.365,Comedy
 1125701,Midwinter Break,2026-02-20,2.1231,6.6,Drama
 1268127,Humint,2026-02-11,12.9214,7.436,Thriller
 1542582,Cabin Pressure,2025-09-05,0.3465,7.875,Thriller
@@ -243,14 +216,10 @@ movie_id,title,release_date,popularity,vote_average,primary_genre
 1124566,Sentimental Value,2025-08-20,8.5189,7.446,Drama
 1558796,Never Change!,2026-06-09,6.9716,6.4,Comedy
 1100988,28 Years Later,2025-06-18,22.3774,6.617,Horror
-541671,Ballerina,2025-06-04,24.3529,7.258,Action
-1062722,Frankenstein,2025-10-17,17.99,7.634,Drama
 1215919,My Sister's Bones,2026-01-30,3.2858,6.2,Drama
 1644270,O'PENing: The Catstody War,2025-08-17,0.3421,0.0,Unknown
-402431,Wicked,2024-10-16,17.0927,6.906,Drama
 1575337,Cosmic Princess Kaguya!,2026-01-22,14.9089,8.367,Animation
 729684,Fox Hunt,2025-04-04,5.605,6.636,Action
-696393,Cold Storage,2026-01-22,9.1933,6.771,Horror
 798645,The Running Man,2025-11-11,17.5915,6.776,Action
 1284041,The Last House,2026-08-07,4.8589,0.0,Horror
 1291659,The Wizard of the Kremlin,2026-01-21,6.024,6.5,Drama
@@ -263,7 +232,6 @@ movie_id,title,release_date,popularity,vote_average,primary_genre
 1409853,Neglected,2026-05-08,5.2606,7.5,Action
 1673179,AEW x NJPW x CMLL x Stardom Present Forbidden Door 2026,2026-06-28,4.9989,8.7,Unknown
 1720282,WWE Night of Champions 2026,2026-06-27,4.8697,5.0,Action
-680493,Return to Silent Hill,2026-01-21,29.2701,5.377,Mystery
 1309083,Dolly,2026-03-06,58.6322,5.995,Horror
 516729,Paddington in Peru,2024-11-08,7.4323,6.806,Adventure
 1363387,Saccharine,2026-05-22,15.324,6.3,Horror
@@ -271,17 +239,13 @@ movie_id,title,release_date,popularity,vote_average,primary_genre
 1168190,The Wrecking Crew,2026-01-28,29.0872,7.0,Action
 1443961,Rao Bahadur,2026-07-02,3.2251,0.0,Fantasy
 558449,Gladiator II,2024-11-13,13.4377,6.61,Action
-950387,A Minecraft Movie,2025-03-31,36.2008,6.258,Family
 1294203,My Fault: London,2025-02-12,27.9126,7.372,Drama
 604079,The Long Walk,2025-09-10,12.9468,6.896,Science Fiction
 1376511,The Great One,2025-09-28,1.1308,0.0,Drama
 1559575,Kafir: The Spirit Gate,2026-01-29,11.2322,5.6,Horror
 1330021,Remarkably Bright Creatures,2026-05-07,25.1018,8.6,Drama
 1465563,A Poet,2025-08-28,2.9531,8.753,Comedy
-1609125,The Butcher's Blade,2026-01-08,4.384,6.6,Action
 1185806,PAW Patrol: The Dino Movie,2026-07-31,9.9716,0.0,Adventure
-1330021,Remarkably Bright Creatures,2026-05-07,25.1018,8.56,Drama
-1465563,A Poet,2025-08-28,2.9531,8.753,Comedy
 1193550,California Schemin',2026-04-10,4.0618,5.8,Music
 1288445,Mutiny,2026-08-19,7.2833,0.0,Action
 1339485,The Killer Goldfish,2025-05-02,1.4048,6.0,Horror
@@ -290,21 +254,16 @@ movie_id,title,release_date,popularity,vote_average,primary_genre
 1146239,Don't Mess with Grandma,2024-09-20,2.0736,6.5,Comedy
 1195631,William Tell,2025-01-17,5.0175,6.204,Action
 1669841,Bleach: Thousand-Year Blood War - The Calamity,2026-06-25,10.9561,7.5,Action
-1274706,The Marked Woman,2026-06-05,14.6404,5.477,Thriller
 1003083,Audrey's Children,2025-03-28,1.1283,7.0,Drama
 1291335,Solo Mio,2026-02-05,7.9909,7.247,Romance
 1421977,Fantasy Life,2026-03-27,1.2286,6.222,Comedy
 1290417,Thrash,2026-04-10,22.8596,6.051,Horror
 1620313,The Samurai and the Prisoner,2026-06-19,5.1433,6.0,Drama
 696506,Mickey 17,2025-02-28,14.8088,6.84,Science Fiction
-1720282,WWE Night of Champions 2026,2026-06-27,4.8697,5.0,Action
 1241803,Les Misérables,2026-10-14,2.1298,0.0,History
-1363387,Saccharine,2026-05-22,15.324,6.3,Horror
 1086260,The Astronaut,2025-09-26,5.1467,6.103,Horror
-1100988,28 Years Later,2025-06-18,22.3774,6.617,Horror
 1658216,Stepdaddy,2026-04-04,38.8016,5.3,Drama
 812583,Wake Up Dead Man: A Knives Out Mystery,2025-11-26,12.4627,7.208,Thriller
-1559575,Kafir: The Spirit Gate,2026-01-29,11.2322,5.6,Horror
 1259983,Guru,2026-01-28,2.6774,6.1,Drama
 533535,Deadpool & Wolverine,2024-07-24,37.368,7.575,Action
 1223601,Sisu: Road to Revenge,2025-10-21,17.9941,7.3,Action
@@ -317,7 +276,6 @@ movie_id,title,release_date,popularity,vote_average,primary_genre
 1710107,Diary of Evil Deeds,2026-06-30,0.8431,0.0,Comedy
 1724784,九叔之离奇命案,2026-07-03,0.2271,0.0,Thriller
 1034716,People We Meet on Vacation,2026-01-06,8.1275,6.951,Comedy
-1421153,Living the Land,2025-12-24,1.9402,6.8,Drama
 1421153,Living the Land,2025-12-24,1.9402,6.8,Drama
 1476682,Gail Daughtry and the Celebrity Sex Pass,2026-07-09,5.7828,0.0,Comedy
 1475606,Ji Wu,2026-04-17,0.6336,1.0,Thriller
@@ -359,7 +317,6 @@ movie_id,title,release_date,popularity,vote_average,primary_genre
 1536559,Double Happiness,2026-02-17,3.2142,6.5,Drama
 1437985,Open Season 2,2025-12-10,1.1675,5.7,Comedy
 1390382,Couture,2026-02-18,8.9924,6.3,Drama
-1022787,Elio,2025-06-18,17.6051,6.914,Animation
 1412598,Killer Whale,2026-01-16,8.0121,5.612,Thriller
 1693442,Monay,2026-05-22,5.4789,0.0,Drama
 1542261,Doraemon the Movie: New Nobita and the Castle of the Undersea Devil,2026-02-27,10.1772,7.5,Animation
@@ -398,8 +355,6 @@ movie_id,title,release_date,popularity,vote_average,primary_genre
 1545621,Detective Conan: Fallen Angel of the Highway,2026-04-10,24.9013,8.0,Animation
 1218412,Promised Sky,2026-01-28,1.299,5.9,Drama
 1100782,Smile 2,2024-10-16,10.938,6.591,Horror
-1218412,Promised Sky,2026-01-28,1.299,5.9,Drama
-1100782,Smile 2,2024-10-16,10.938,6.591,Horror
 1443374,All the Good Eyes,2026-04-25,9.7119,5.0,Drama
 1167307,David,2025-12-14,28.874,8.0,Animation
 1667198,The Amazing Digital Circus: The Last Act,2026-06-03,21.0309,8.849,Animation
@@ -422,12 +377,10 @@ movie_id,title,release_date,popularity,vote_average,primary_genre
 1290432,A Private Life,2025-09-27,6.4357,5.649,Drama
 1543151,King Kaew,2026-01-29,35.9025,2.7,Horror
 755679,Fast Forever,2028-03-16,42.2887,0.0,Action
-696506,Mickey 17,2025-02-28,14.8088,6.84,Science Fiction
 1669050,Tayuan 2,2026-04-17,12.2542,4.9,Drama
 1604426,Pemikat Jiwa,2026-07-09,1.2161,0.0,Horror
 1338972,Pitfall,2026-05-29,4.493,5.714,Action
 1245347,Twinless,2025-09-04,4.8157,7.256,Comedy
-829280,Enola Holmes 2,2022-11-03,25.2759,7.406,Adventure
 822119,Captain America: Brave New World,2025-02-12,15.3339,5.965,Action
 1393326,Ghost in the Cell,2026-04-16,10.7691,7.962,Horror
 1388874,Boss Ma'am,2024-11-26,8.9768,6.5,Drama
@@ -439,13 +392,6 @@ movie_id,title,release_date,popularity,vote_average,primary_genre
 1138194,Heretic,2024-10-31,8.83,6.972,Thriller
 1641319,Sniper: No Nation,2026-04-07,27.653,6.7,Action
 1228246,Five Nights at Freddy's 2,2025-12-03,26.1257,6.647,Horror
-1398655,Blue Film,2026-05-08,9.6552,7.6,Drama
-1375306,Mario,2025-10-10,0.679,5.3,Comedy
-1376890,Post-Revenge Clarity,2024-10-20,0.3109,8.0,Mystery
-1033148,Die My Love,2025-10-06,10.15,6.109,Drama
-1437511,How to Rob a Bank,2026-09-03,4.1854,0.0,Crime
-1138194,Heretic,2024-10-31,8.83,6.972,Thriller
-1641319,Sniper: No Nation,2026-04-07,27.653,6.7,Action
 1290879,The Woman in Cabin 10,2025-10-09,4.1815,6.187,Mystery
 1456349,It Was Just an Accident,2025-10-01,6.4756,7.147,Drama
 1662414,Propeller One-Way Night Coach,2026-05-15,5.6846,6.731,Adventure
@@ -479,7 +425,6 @@ movie_id,title,release_date,popularity,vote_average,primary_genre
 1211237,Rabb Da Radio 3,2026-04-03,7.4078,8.0,Drama
 1159206,Father Mother Sister Brother,2025-12-01,3.5821,6.4,Comedy
 1297446,Slanted,2026-03-13,5.6714,5.892,Horror
-1126166,Flight Risk,2025-01-22,8.3017,5.926,Action
 1010755,The Strangers: Chapter 3,2026-02-05,19.0912,5.919,Horror
 1242937,The Dreadful,2026-02-20,4.5729,6.08,Horror
 1314786,Agent Zeta,2026-03-20,8.8059,6.62,Drama
