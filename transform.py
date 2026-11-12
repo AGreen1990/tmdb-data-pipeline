@@ -23,6 +23,13 @@ genre_map = {
 # Loop through movies in list
 for movie in movies_list:
 
+    
+    movie_id = movie.get("id")  #skips movies we've already kept
+    if movie_id in seen_ids:
+        duplicates_skipped += 1
+        continue
+    seen_ids.add(movie_id)
+
     #1. grabs list of genre_ids (default to empty list if missing)
     genre_ids = movie.get("genre_ids",[])
     
