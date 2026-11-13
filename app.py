@@ -9,7 +9,7 @@ st.set_page_config(page_title="TMDB Movies Dashboard", page_icon="🍿", layout=
 st.title("🍿 TMDB Movies Dashboard")
 st.markdown("Explore live, automated movie metrics pulled straight from Neon.")
 
-#  --- 1.   CONNECT AND PULL DATA (SILVER & GOLD) ---
+#  --- 1.   CONNECT AND PULL DATA ---
 @st.cache_data
 def load_data():
     #1. Grab Neon connection string from Streamlit secrets
@@ -26,18 +26,6 @@ def load_data():
     df = pd.read_sql(query, con=engine)
 
     return df
-
-
-
-    #Pulls Silver Data (For individual titles)
-    silver_query = "SELECT title, primary_genre, vote_average_AVERAGE, popularity FROM TMDB_PROJECT_DB.SILVER.CLEANED_MOVIES"
-    silver_df = pd.read_sql(silver_query, conn)
-
-    #Pulls Gold data (for aggregated primary_genre metrics)
-    gold_query = "SELECT primary_genre, TOTAL_MOVIES, AVERAGE_RATING, AVERAGE_popularity FROM TMDB_PROJECT_DB.GOLD.primary_genre_METRICS_PHYSICAL"
-    gold_df = pd.read_sql(gold_query, conn)
-
-    return silver_df, gold_df
 
 #load  dataframe
 df = load_data()
