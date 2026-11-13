@@ -47,6 +47,7 @@ for movie in movies_list:
         "release_date": movie.get("release_date"),
         "popularity": movie.get("popularity"),
         "vote_average": movie.get("vote_average"),
+        "vote_count": movie.get("vote_count"),
         "primary_genre": genre_name
     }
     cleaned_movies.append(clean_movie)
@@ -55,7 +56,7 @@ print(f"Skipped {duplicates_skipped} duplicate movies")
 
 print("3. Saving to CSV format. . .")
 #define column names
-headers = ["movie_id", "title", "release_date", "popularity", "vote_average", "primary_genre"]
+headers = ["movie_id", "title", "release_date", "popularity", "vote_average", "vote_count", "primary_genre"]
 
 #write cleaned data to CSV file
 # newline= "" prevents empty rows between data, encoding="utf-8" handles special characters in movie titles
