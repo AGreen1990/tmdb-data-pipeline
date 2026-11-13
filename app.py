@@ -29,7 +29,7 @@ def load_data():
 
 #load  dataframe
 df = load_data()
-
+df["label"] = df["title"] + " (" + df["release_data"].fillna("n/a").str[:4] + ")"
 # --- Macro View: Gold Layer ----
 st.header("🌍 The Macro View: Primary Genre Performance")
 #st.markdown("Comparing overall **Average Rating** vs **Average popularity** across all primary genres. *(Hover over dots for details)*") - previous code - creates Bold caption same color as header 
@@ -80,13 +80,13 @@ top_10_pop = filtered_df.nlargest(10, 'popularity').round({'popularity': 2}) #ad
 #renamed labels to be more formal for popularity and rating chart
 
 chart_top_10_pop = top_10_pop.rename(columns={
-    'title': 'Title',
+    'label': 'Title',
     'popularity': 'Popularity'
 })
 
 top_10_rating = filtered_df.nlargest(10, 'vote_average').round({'vote_average': 2})
 chart_top_10_rating = top_10_rating.rename(columns={
-    'title': 'Title',
+    'label': 'Title',
     'vote_average': 'Vote Average'
 })
 #6 --- Visualizations ---
