@@ -29,7 +29,13 @@ def load_data():
 
 #load  dataframe
 df = load_data()
+# Make a label for each movie, like "Wicked (2024)"
 df["label"] = df["title"] + " (" + df["release_date"].fillna("n/a").str[:4] + ")"
+
+#If two different movies end up with the same label, add movie_id to tell them apart
+same_label = df.duplicated("label", keep=False)
+df.loc[same_label, "label"] = df["label"] + " #" + df["movie_id"].astype(str)
+
 # --- Macro View: Gold Layer ----
 st.header("🌍 The Macro View: Primary Genre Performance")
 #st.markdown("Comparing overall **Average Rating** vs **Average popularity** across all primary genres. *(Hover over dots for details)*") - previous code - creates Bold caption same color as header 
