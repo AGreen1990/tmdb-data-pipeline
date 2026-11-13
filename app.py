@@ -29,7 +29,7 @@ def load_data():
 
 #load  dataframe
 df = load_data()
-df["label"] = df["title"] + " (" + df["release_data"].fillna("n/a").str[:4] + ")"
+df["label"] = df["title"] + " (" + df["release_date"].fillna("n/a").str[:4] + ")"
 # --- Macro View: Gold Layer ----
 st.header("🌍 The Macro View: Primary Genre Performance")
 #st.markdown("Comparing overall **Average Rating** vs **Average popularity** across all primary genres. *(Hover over dots for details)*") - previous code - creates Bold caption same color as header 
