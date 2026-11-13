@@ -10,7 +10,7 @@ st.title("🍿 TMDB Movies Dashboard")
 st.markdown("Explore live, automated movie metrics pulled straight from Neon.")
 
 #  --- 1.   CONNECT AND PULL DATA ---
-@st.cache_data
+@st.cache_data(ttl=3600)
 def load_data():
     #1. Grab Neon connection string from Streamlit secrets
     db_url = st.secrets["DATABASE_URL"]
