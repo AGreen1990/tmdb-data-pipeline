@@ -92,7 +92,7 @@ chart_top_10_pop = top_10_pop.rename(columns={
     'popularity': 'Popularity'
 })
 
-rated_df = filtered_df[filtered_df=['vote_count'] >= MIN_VOTES]
+rated_df = filtered_df[filtered_df['vote_count'] >= MIN_VOTES]
 top_10_rating = rated_df.nlargest(10, 'vote_average').round({'vote_average': 2})
 chart_top_10_rating = top_10_rating.rename(columns={
     'label': 'Title',
