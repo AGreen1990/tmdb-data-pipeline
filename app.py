@@ -94,10 +94,11 @@ chart_top_10_pop = top_10_pop.rename(columns={
 
 rated_df = filtered_df[filtered_df['vote_count'] >= MIN_VOTES]
 top_10_rating = rated_df.nlargest(10, 'vote_average').round({'vote_average': 2})
-chart_top_10_rating = top_10_rating.rename(columns={
-    'label': 'Title',
-    'vote_average': 'Vote Average'
-})
+rating_table = top_10_rating[['title', 'release_date', 'vote_average', 'vote_count']].copy()
+rating_table['release_date'] = rating_table['release_date'].fillna('n/a').str[:4]
+rating_table.columns = ['Title', 'Year', 'Rating', 'Votes']
+rating_table.insert(0, 'Rank', range(1, len(rating_table) + 1))
+
 #6 --- Visualizations ---
 st.markdown(f"### Currently viewing: **{selected_primary_genre}** Movies")
 
@@ -112,7 +113,10 @@ with col1:
 with col2:
     st.subheader("⭐️ Top 10 Highest Rated")
     st.caption(f"Only movies with at least {MIN_VOTES} votes, so a few votes can't skew the average.")
-    st.bar_chart(data=chart_top_10_rating, x="Title", y="Vote Average", horizontal=True, color="#00ff00")
+    if rating_table.empty:
+        st.info("No movies in this genre have enough votes yet.")
+    else:
+        st.dataframe(rating_table, hide_index=True)
 
 #raw data expander at the bottom
 with st.expander("🔎 View Raw Database Records"):
