@@ -3,6 +3,8 @@ import pandas as pd
 import plotly.express as px
 from sqlalchemy import create_engine
 
+MIN_VOTES = 50 #movies need at least this many votes to appear in the rating chart
+
 #Set up page layout
 st.set_page_config(page_title="TMDB Movies Dashboard", page_icon="🍿", layout="wide")
 
@@ -90,7 +92,8 @@ chart_top_10_pop = top_10_pop.rename(columns={
     'popularity': 'Popularity'
 })
 
-top_10_rating = filtered_df.nlargest(10, 'vote_average').round({'vote_average': 2})
+rated_df = filtered_df[filtered_df=['vote_count'] >= MIN_VOTES]
+top_10_rating = rated_df.nlargest(10, 'vote_average').round({'vote_average': 2})
 chart_top_10_rating = top_10_rating.rename(columns={
     'label': 'Title',
     'vote_average': 'Vote Average'
@@ -108,6 +111,7 @@ with col1:
 
 with col2:
     st.subheader("⭐️ Top 10 Highest Rated")
+    st.caption(f"Only movies with at least {MIN_VOTES} votes, so a few votes can't skew the average.")
     st.bar_chart(data=chart_top_10_rating, x="Title", y="Vote Average", horizontal=True, color="#00ff00")
 
 #raw data expander at the bottom
